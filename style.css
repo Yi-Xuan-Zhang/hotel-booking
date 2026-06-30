@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #abc4eb;
+    font-family: "Microsoft JhengHei", sans-serif;
+}
+
+h1 {
+    text-align: center;
+    padding: 25px;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* 搜尋區 */
+.search-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: end;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px;
+    width: 180px;
+}
+
+/* 房型區 */
+.room-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.room-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .15);
+}
+
+.room-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.room-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.room-info h3 {
+    margin-bottom: 10px;
+}
+
+.room-info p {
+    margin-bottom: 8px;
+}
+
+.book-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #3874b8;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+.book-btn:hover {
+    background: #005fd1;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 450px;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.detail {
+    margin-bottom: 10px;
+}
+
+.modal-buttons {
+    margin-top: 20px;
+
+    display: flex;
+    gap: 10px;
+}
+
+.confirm-btn,
+.cancel-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.confirm-btn {
+    background: green;
+}
+
+.cancel-btn {
+    background: crimson;
+}
+
+.empty-msg {
+    text-align: center;
+    padding: 50px;
+    font-size: 20px;
+    color: gray;
+}
+
+/* =========================
+   訂房成功視窗
+========================= */
+.success-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.success-content {
+
+    width: 420px;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    animation: showModal .3s ease;
+}
+
+.success-icon {
+    font-size: 70px;
+    margin-bottom: 15px;
+}
+
+.success-content h2 {
+    color: green;
+    margin-bottom: 15px;
+}
+
+.success-content p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.success-content button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: green;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+@keyframes showModal {
+    from {
+        transform: scale(.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
