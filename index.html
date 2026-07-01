@@ -1,44 +1,72 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>飯店訂房網站</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飯店訂房平台</title>
+    <link rel="stylesheet" href="./style.css">
+
 </head>
+
 <body>
+    <h1>🏨 飯店訂房平台</h1>
 
-  <h1>飯店訂房網站</h1>
+    <div class="container">
+        <!-- 搜尋區 -->
+        <div class="search-box">
+            <div class="form-group">
+                <label>入住日期</label>
+                <input type="date" id="checkIn">
+            </div>
+            <div class="form-group">
+                <label>退房日期</label>
+                <input type="date" id="checkOut">
+            </div>
+            <div class="form-group">
+                <label>入住人數</label>
+                <select id="guestCount">
+                    <option value="1">1人</option>
+                    <option value="2">2人</option>
+                    <option value="3">3人</option>
+                    <option value="4">4人</option>
+                    <option value="5">5人</option>
+                    <option value="6">6人</option>
+                </select>
+            </div>
 
-  <p>
-    這是一個模擬飯店訂房系統的網站，
-    提供房型瀏覽、日期選擇與總價計算功能。
-  </p>
+        </div>
 
-  <h2>功能特色</h2>
-  <ul>
-    <li>房型列表</li>
-    <li>入住日期選擇</li>
-    <li>退房日期選擇</li>
-    <li>住宿天數計算</li>
-    <li>總價即時計算</li>
-    <li>訂房成功提示</li>
-  </ul>
+        <!-- 房型列表 -->
+        <div class="room-list" id="roomList"></div>
 
-  <h2>使用技術</h2>
-  <p>HTML、CSS、JavaScript</p>
+    </div>
 
-  <h2>專案截圖</h2>
-
-  <img
-    src="image/首頁.png"
-    width="500"
-    alt="首頁">
-
-  <h2>GitHub</h2>
-  <a href="https://github.com/Yi-Xuan-Zhang/hotel-booking"
-    target="_blank">查看原始碼</a>
-  <br><br>
-  <a href="https://Yi-Xuan-Zhang.github.io">返回作品集</a>
-
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2>訂房明細</h2>
+            <div class="detail" id="detailRoom"></div>
+            <div class="detail" id="detailDate"></div>
+            <div class="detail" id="detailDays"></div>
+            <div class="detail" id="detailGuest"></div>
+            <div class="detail" id="detailPrice"></div>
+            <div class="modal-buttons">
+                <button class="confirm-btn" id="confirmBtn">確認預訂</button>
+                <button class="cancel-btn" id="cancelBtn">取消</button>
+            </div>
+        </div>
+        <!-- 訂房成功 Modal -->
+        <div class="success-modal" id="successModal">
+            <div class="success-content">
+                <div class="success-icon">✅</div>
+                <h2>訂房成功</h2>
+                <p id="successText"></p>
+                <button id="finishBtn">完成</button>
+            </div>
+        </div>
+    </div>
+<script src="./script.js"></script>
 </body>
+
 </html>
