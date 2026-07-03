@@ -91,9 +91,7 @@ function getStayDays() {
     const start = new Date(checkIn.value);
     const end = new Date(checkOut.value);
 
-    return Math.ceil(
-        (end - start) / (1000 * 60 * 60 * 24)
-    );
+    return Math.ceil((end - start) / (1000 * 60 * 60 * 24));
 }
 
 /* =========================
@@ -102,9 +100,7 @@ function getStayDays() {
 
 function validateDate() {
     if (
-        checkIn.value &&
-        checkOut.value &&
-        checkOut.value <= checkIn.value
+        checkIn.value && checkOut.value && checkOut.value <= checkIn.value
     ) {
         alert("退房日期必須晚於入住日期");
         checkOut.value = "";
@@ -121,20 +117,13 @@ checkOut.addEventListener("change", validateDate);
 ========================= */
 
 function renderRooms() {
-
     roomList.innerHTML = "";
+    const guests = Number(guestCount.value);
 
-    const guests = Number(
-        guestCount.value
-    );
-
-    guestLabel.textContent =
-        `${guests} 位旅客`;
-
+    guestLabel.textContent = `${guests} 位旅客`;
     const filteredRooms =
         rooms.filter(
-            room =>
-                room.maxGuest >= guests
+            room => room.maxGuest >= guests
         );
 
     if (!filteredRooms.length) {
@@ -146,43 +135,23 @@ function renderRooms() {
     }
 
     filteredRooms.forEach(room => {
-
         const amenities =
             room.amenities
-                .map(
-                    item =>
-                        `<span class="amenity-tag">${item}</span>`
-                )
+                .map(item =>
+                    `<span class="amenity-tag">${item}</span>`)
                 .join("");
 
         roomList.innerHTML += `
         <div class="room-card">
             <img src="${room.image}">
-
             <h3>${room.name}</h3>
-
             <p>⭐ ${room.rating}</p>
-
             <p>最多入住 ${room.maxGuest} 人</p>
-
             <div>${amenities}</div>
-
-            <h4>
-                NT$${room.price.toLocaleString()}
-                / 晚
-            </h4>
-
-            <button
-                class="detail-btn"
-                data-id="${room.id}">
-                查看詳情
-            </button>
-
-            <button
-                class="book-btn"
-                data-id="${room.id}">
-                立即預訂
-            </button>
+            <h4>NT$${room.price.toLocaleString()}/ 晚</h4>
+            <button class="detail-btn"
+                data-id="${room.id}">查看詳情</button>
+            <button class="book-btn" data-id="${room.id}">立即預訂</button>
         </div>
         `;
     });
@@ -198,19 +167,15 @@ guestCount.addEventListener(
 /* =========================
    查詢空房
 ========================= */
-
 searchBtn.addEventListener(
     "click",
     () => {
-
         if (!validateDate())
             return;
 
-        document
-            .querySelector("#rooms")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
+        document.querySelector("#rooms").scrollIntoView({
+            behavior: "smooth"
+        });
     }
 );
 
@@ -221,46 +186,29 @@ searchBtn.addEventListener(
 roomList.addEventListener(
     "click",
     e => {
-
         const detail =
             e.target.closest(
-                ".detail-btn"
-            );
+                ".detail-btn");
 
         if (detail) {
-
-            const room =
-                rooms.find(
-                    r =>
-                        r.id ==
-                        detail.dataset.id
-                );
+            const room = rooms.find(
+                r =>
+                    r.id == detail.dataset.id
+            );
 
             alert(
                 `${room.name}
-
-${room.description}
-
-設施：
-${room.amenities.join("、")}
-
-價格：
-NT$${room.price.toLocaleString()}/晚`
+                ${room.description}
+                設施：${room.amenities.join("、")}
+                價格：NT$${room.price.toLocaleString()}/晚`
             );
-
             return;
         }
-
-        const book =
-            e.target.closest(
-                ".book-btn"
-            );
+        const book = e.target.closest(".book-btn");
 
         if (book) {
-            openModal(
-                Number(
-                    book.dataset.id
-                )
+            openModal(Number(
+                book.dataset.id)
             );
         }
     }
@@ -273,8 +221,7 @@ NT$${room.price.toLocaleString()}/晚`
 function openModal(roomId) {
 
     if (
-        !checkIn.value ||
-        !checkOut.value
+        !checkIn.value || !checkOut.value
     ) {
         alert(
             "請先選擇入住日期"
@@ -354,30 +301,14 @@ document.querySelector(
             "OD" +
             Date.now(),
 
-        room:
-            currentRoom.name,
-
-        roomId:
-            currentRoom.id,
-
-        guest:
-            guestCount.value,
-
-        checkIn:
-            checkIn.value,
-
-        checkOut:
-            checkOut.value,
-
-        days,
-        total,
-
-        image:
-            currentRoom.image,
-
-        createdAt:
-            new Date()
-                .toLocaleString()
+        room: currentRoom.name,
+        roomId: currentRoom.id,
+        guest: guestCount.value,
+        checkIn: checkIn.value,
+        checkOut: checkOut.value,
+        days, total,
+        image: currentRoom.image,
+        createdAt: new Date().toLocaleString()
     };
 
     const bookings =
@@ -408,45 +339,28 @@ document.querySelector(
     modal.style.display =
         "none";
 
-    successText.innerHTML =
-        `
-        訂單編號：
-        ${booking.orderId}<br><br>
-
-        房型：
-        ${booking.room}<br>
-
-        入住日期：
-        ${booking.checkIn}<br>
-
-        退房日期：
-        ${booking.checkOut}<br>
-
-        住宿：
-        ${booking.days} 晚<br>
-
-        總金額：
-        NT$${booking.total.toLocaleString()}
+    successText.innerHTML = ` 
+    訂單編號： ${booking.orderId}<br><br>
+    房型： ${booking.room}<br>
+    入住日期： ${booking.checkIn}<br>
+    退房日期： ${booking.checkOut}<br>
+    住宿： ${booking.days} 晚<br>
+    總金額： NT$${booking.total.toLocaleString()}
     `;
 
-    successModal.style.display =
-        "flex";
+    successModal.style.display = "flex";
 };
 
 /* =========================
    完成
 ========================= */
-
 document.querySelector(
     "#finishBtn"
 ).onclick = () => {
-
-    successModal.style.display =
-        "none";
+    successModal.style.display = "none";
 
     checkIn.value = "";
     checkOut.value = "";
-
     guestCount.value = 2;
 
     renderRooms();
@@ -457,7 +371,6 @@ document.querySelector(
 ========================= */
 
 function viewLatestBooking() {
-
     const booking =
         JSON.parse(
             localStorage.getItem(
@@ -472,10 +385,10 @@ function viewLatestBooking() {
 
     alert(
         `訂單編號：${booking.orderId}
-房型：${booking.room}
-入住：${booking.checkIn}
-退房：${booking.checkOut}
-總金額：NT$${booking.total.toLocaleString()}`
+        房型：${booking.room}
+        入住：${booking.checkIn}
+        退房：${booking.checkOut}
+        總金額：NT$${booking.total.toLocaleString()}`
     );
 }
 
@@ -486,9 +399,7 @@ function viewLatestBooking() {
 function renderBookings() {
 
     const container =
-        document.querySelector(
-            "#bookingList"
-        );
+        document.querySelector("#bookingList");
 
     if (!container)
         return;
@@ -501,42 +412,23 @@ function renderBookings() {
         ) || [];
 
     if (!bookings.length) {
-        container.innerHTML =
-            "<p>尚無訂房紀錄</p>";
+        container.innerHTML = "<p>尚無訂房紀錄</p>";
         return;
     }
 
     container.innerHTML =
         bookings
             .map(
-                booking =>
-                    `
-        <div class="booking-card">
-
-            <img src="${booking.image}">
-
-            <h3>${booking.room}</h3>
-
-            <p>
-                訂單：
-                ${booking.orderId}
-            </p>
-
-            <p>
-                ${booking.checkIn}
-                ~
-                ${booking.checkOut}
-            </p>
-
-            <p>${booking.days} 晚</p>
-
-            <p> NT$${booking.total.toLocaleString()}</p>
-
-            <button
-                onclick="deleteBooking('${booking.orderId}')">
-                取消訂單
-            </button>
-
+                booking => `
+                <div class="booking-card">
+                <img src="${booking.image}">
+                <h3>${booking.room}</h3>
+                <p>訂單：${booking.orderId}</p>
+                <p>${booking.checkIn}~${booking.checkOut}</p>
+                <p>${booking.days} 晚</p>
+                <p> NT$${booking.total.toLocaleString()}</p>
+                <button
+                onclick="deleteBooking('${booking.orderId}')">取消訂單</button>
         </div>
         `
             )
