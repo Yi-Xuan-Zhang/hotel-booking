@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>暄隱行旅 Xuan Yin Hotel｜城市中的靜謐居所</title>
-    <meta name="description" content="晏川行旅提供四種房型選擇，即時查詢空房、線上預訂，享受城市中的靜謐時光。">
+    <title>暄隱行旅 Xuan Yin Hotel｜台灣人情味的靜謐居所</title>
+    <meta name="description" content="暄隱行旅提供四種以台灣風景命名的房型，即時查詢空房、線上預訂，用一張登機證的心情，帶你感受台灣的美與人情味。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -27,6 +27,7 @@
             </a>
             <nav class="main-nav">
                 <a href="#rooms">房型與價格</a>
+                <a href="#taiwan">在地探索</a>
                 <a href="#features">設施服務</a>
                 <a href="#reviews">住客評價</a>
                 <a href="#footer">聯絡我們</a>
@@ -42,16 +43,16 @@
     <!-- Hero -->
     <section class="hero">
         <div class="hero-media">
-            <img src="https://picsum.photos/1600/900?hotel-lobby" alt="晏川行旅大廳">
+            <img src="https://photo.travelking.com.tw/weekend/945_e_1.jpg" alt="台灣城市夜景">
             <div class="hero-scrim"></div>
         </div>
         <div class="hero-copy">
             <p class="hero-eyebrow">台中・靜謐城中旅居</p>
-            <h1>把行程留白，<br>讓暄隱為你安排靜謐。</h1>
-            <p class="hero-sub">四種房型、即時空房查詢，三步驟完成預訂。</p>
+            <h1>把行程留白，<br>讓在地的人情味帶你看見台灣。</h1>
+            <p class="hero-sub">四種以台灣風景命名的房型、即時空房查詢，三步驟完成預訂——像收到一張登機證一樣簡單，像回到熟人家一樣溫暖。</p>
         </div>
 
-        <!-- 搜尋票卡 -->
+        <!-- 搜尋票卡：登機證造型 -->
         <div class="search-ticket" id="searchTicket">
             <div class="ticket-row">
                 <div class="form-group">
@@ -68,7 +69,7 @@
                     <label for="guestCount">入住人數</label>
                     <select id="guestCount">
                         <option value="1">1 位旅客</option>
-                        <option value="2">2 位旅客</option>
+                        <option value="2" selected>2 位旅客</option>
                         <option value="3">3 位旅客</option>
                         <option value="4">4 位旅客</option>
                         <option value="5">5 位旅客</option>
@@ -80,60 +81,101 @@
         </div>
     </section>
 
-    <!-- 特色 -->
+    <!-- 特色：台灣人情味服務 -->
     <section class="features" id="features">
-        <div class="container">
-            <div class="feature">
-                <span class="feature-icon">◐</span>
-                <h3>彈性取消</h3>
-                <p>入住前 3 天皆可免費修改或取消訂單。</p>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">◑</span>
-                <h3>最優房價保證</h3>
-                <p>官網訂房享全網最低價，價差主動退還。</p>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">◒</span>
-                <h3>在地管家服務</h3>
-                <p>24 小時櫃檯與在地嚮導，隨時提供協助。</p>
-            </div>
+        <div class="feature">
+            <span class="feature-icon">◐</span>
+            <h3>彈性取消</h3>
+            <p>入住前 3 天皆可免費修改或取消訂單，不讓行程綁住你。</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">◑</span>
+            <h3>在地人情價保證</h3>
+            <p>官網訂房享全網最低價，價差主動退還，像朋友介紹的自家人價。</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">◒</span>
+            <h3>在地管家帶路</h3>
+            <p>24 小時櫃檯與在地嚮導，巷口哪家豆花好吃都一清二楚。</p>
         </div>
     </section>
 
     <!-- 房型列表 -->
     <section class="room-section" id="rooms">
-        <div class="container">
-            <div class="section-head">
-                <p class="section-eyebrow">ROOMS &amp; RATES</p>
-                <h2>選擇你的房型</h2>
-                <p class="section-desc">已依「<span id="guestLabel">2 位旅客</span>」篩選可入住之房型</p>
+        <div class="section-head">
+            <p class="section-eyebrow">ROOMS &amp; RATES</p>
+            <h2>選擇你的台灣風景</h2>
+            <p class="section-desc">每個房型都以一段台灣風景命名，已依「<span id="guestLabel">2 位旅客</span>」篩選可入住之房型</p>
+        </div>
+        <div class="room-list" id="roomList"></div>
+    </section>
+
+    <!-- 在地探索：台灣角落明信片 -->
+    <section class="taiwan-section" id="taiwan">
+        <div class="section-head">
+            <p class="section-eyebrow">TAIWAN MOMENTS</p>
+            <h2>入住之外，還想帶你看見的台灣</h2>
+            <p class="section-desc">這些是我們的管家最常推薦給旅人的角落，附上一句在地人的真心話</p>
+        </div>
+        <div class="taiwan-grid">
+            <div class="taiwan-card">
+                <img src="https://loremflickr.com/500/360/jiufen,taiwan?lock=2" alt="九份山城">
+                <span class="taiwan-stamp">TAIWAN<br>POST</span>
+                <div class="taiwan-info">
+                    <h3>九份山城</h3>
+                    <p class="taiwan-quote">「傍晚燈籠一亮，整條老街都在等你回家吃碗芋圓。」</p>
+                    <span class="taiwan-tag">— 管家 阿義</span>
+                </div>
             </div>
-            <div class="room-list" id="roomList"></div>
+            <div class="taiwan-card">
+                <img src="https://loremflickr.com/500/360/sunmoonlake,taiwan?lock=3" alt="日月潭">
+                <span class="taiwan-stamp">TAIWAN<br>POST</span>
+                <div class="taiwan-info">
+                    <h3>日月潭</h3>
+                    <p class="taiwan-quote">「清晨的潭水最安靜，坐上一班船就懂什麼叫留白。」</p>
+                    <span class="taiwan-tag">— 管家 秀琴</span>
+                </div>
+            </div>
+            <div class="taiwan-card">
+                <img src="https://loremflickr.com/500/360/taroko,taiwan?lock=4" alt="太魯閣峽谷">
+                <span class="taiwan-stamp">TAIWAN<br>POST</span>
+                <div class="taiwan-info">
+                    <h3>太魯閣峽谷</h3>
+                    <p class="taiwan-quote">「山會告訴你，急不得的風景才是最好的風景。」</p>
+                    <span class="taiwan-tag">— 管家 志豪</span>
+                </div>
+            </div>
+            <div class="taiwan-card">
+                <img src="https://loremflickr.com/500/360/alishan,taiwan?lock=5" alt="阿里山日出">
+                <span class="taiwan-stamp">TAIWAN<br>POST</span>
+                <div class="taiwan-info">
+                    <h3>阿里山日出</h3>
+                    <p class="taiwan-quote">「我陪旅人看過上百次日出，每一次還是會捨不得眨眼。」</p>
+                    <span class="taiwan-tag">— 管家 美玲</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- 住客評價 -->
     <section class="reviews" id="reviews">
-        <div class="container">
-            <div class="section-head">
-                <p class="section-eyebrow">GUEST REVIEWS</p>
-                <h2>旅人怎麼說</h2>
-            </div>
-            <div class="review-grid">
-                <blockquote class="review-card">
-                    <p>“櫃檯人員細心又親切，房間安靜到能好好補眠，早餐也很用心。”</p>
-                    — 張小姐・商務套房
-                </blockquote>
-                <blockquote class="review-card">
-                    <p>“帶長輩同住，家庭房空間剛剛好，浴室有扶手很貼心。”</p>
-                    — Wei・家庭四人房
-                </blockquote>
-                <blockquote class="review-card">
-                    <p>“慶祝紀念日入住總統套房，夜景跟服務都超出預期。”</p>
-                    — Ivy &amp; Sam・總統套房
-                </blockquote>
-            </div>
+        <div class="section-head">
+            <p class="section-eyebrow">GUEST REVIEWS</p>
+            <h2>旅人怎麼說</h2>
+        </div>
+        <div class="review-grid">
+            <blockquote class="review-card">
+                <p>櫃檯人員細心又親切，還特地手繪一張巷口地圖給我，房間安靜到能好好補眠。</p>
+                <div>張小姐・日月潭雙人房</div>
+            </blockquote>
+            <blockquote class="review-card">
+                <p>帶長輩同住，家庭房空間剛剛好，浴室有扶手很貼心，管家還記得我媽媽不吃辣。</p>
+                <div>Wei・九份家庭四人房</div>
+            </blockquote>
+            <blockquote class="review-card">
+                <p>慶祝紀念日入住阿里山套房，退房那天管家準備了小卡片，才知道這就是台灣的人情味。</p>
+                <div>Ivy &amp; Sam・阿里山總統套房</div>
+            </blockquote>
         </div>
     </section>
 
@@ -142,14 +184,14 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <span class="brand-zh">暄隱行旅</span>
-                <span class="brand-en">XUAN Yin HOTEL</span>
+                <span class="brand-en">XUAN YIN HOTEL</span>
                 <p>台中市西區靜安路 88 號</p>
                 <p>+886 2 2345 6789</p>
             </div>
             <div class="footer-col">
                 <h4>探索</h4>
                 <a href="#rooms">房型與價格</a>
-                <a href="#features">設施服務</a>
+                <a href="#taiwan">在地探索</a>
                 <a href="#reviews">住客評價</a>
             </div>
             <div class="footer-col">
@@ -170,7 +212,7 @@
         <p class="footer-bottom">© 2026 Xuan Yin Hotel. All rights reserved.</p>
     </footer>
 
-    <!-- Modal -->
+    <!-- 訂房明細 Modal -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <h2>訂房明細</h2>
@@ -186,18 +228,49 @@
         </div>
     </div>
 
-    <!-- 訂房成功 Modal -->
-    <div class="success-modal" id="successModal">
-        <div class="modal" id="roomDetailModal">
-            <div class="modal-content room-detail-content">
-                <img id="roomDetailImage" class="room-detail-image">
-                <h2 id="roomDetailName"></h2>
-                <p id="roomDetailDescription"></p>
-                <div id="roomDetailAmenities"></div>
-                <h3 id="roomDetailPrice"></h3>
-                <button id="closeRoomDetail">關閉</button>
+    <!-- 房型詳情 Modal — 登機證雙聯造型 -->
+    <div class="modal" id="roomDetailModal">
+        <div class="modal-content room-detail-content">
+            <div class="boarding-pass">
+                <div class="pass-main">
+                    <p class="pass-eyebrow">ROOM PASS · 房型登機證</p>
+                    <img id="roomDetailImage" class="room-detail-image">
+                    <h2 id="roomDetailName" style="margin-bottom:0;"></h2>
+                    <p id="roomDetailDescription"></p>
+                    <div id="roomDetailAmenities" class="pass-amenities"></div>
+                    <div class="pass-local-tip">
+                        <span class="pass-local-icon">📍</span>
+                        <div>
+                            <label>管家在地小提醒</label>
+                            <p id="roomDetailLocalTip"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pass-stub">
+                    <div>
+                        <div class="pass-field">
+                            <label>Rating · 評價</label>
+                            <div class="value" id="roomDetailRating"></div>
+                        </div>
+                        <div class="pass-field">
+                            <label>Max Guest · 可入住</label>
+                            <div class="value" id="roomDetailGuest"></div>
+                        </div>
+                        <label style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;">Fare · 房價</label>
+                        <h3 id="roomDetailPrice"></h3>
+                    </div>
+                    <div>
+                        <button class="pass-book-btn" id="passBookBtn">前往預訂</button>
+                        <button id="closeRoomDetail">關閉</button>
+                        <div class="barcode"></div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- 訂房成功 Modal -->
+    <div class="success-modal" id="successModal">
         <div class="success-content">
             <div class="success-icon">✓</div>
             <h2>訂房成功</h2>
@@ -205,7 +278,8 @@
             <button id="finishBtn">完成</button>
         </div>
     </div>
-    <!-- 我的預訂Modal-->
+
+    <!-- 我的預訂 Modal -->
     <div class="modal" id="bookingModal">
         <div class="modal-content booking-content">
             <h2>我的預訂</h2>
